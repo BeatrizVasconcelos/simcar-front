@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: flex-end;
+  flex-direction: column;
+  margin: 5em;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+table th {
+  text-align: center;
+}
+
+table tr {
+  text-align: center;
+}

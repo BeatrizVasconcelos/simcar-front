@@ -1,0 +1,33 @@
+<div class="container table-responsive-sm">
+  <table class="table table-success table-striped table-bordered table-hover table-sm" >
+    <thead class="table-dark">
+      <tr>
+        <th scope="col" [appSort]="requerimentos" data-order="desc" data-name="numero" style="cursor: pointer;">
+          <i class="bi bi-filter"></i>
+          NÚMERO</th>
+        <th scope="col">SITUAÇÃO</th>
+        <th scope="col">DATA DE CRIAÇÃO</th>
+        <th scope="col">TAXA DAR</th>
+        <th scope="col">AÇÕES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let requerimento of requerimentos | paginate: config">
+        <td>{{ requerimento.numero }}</td>
+        <td>{{ requerimento.situacao | split }}</td>
+        <td>{{ requerimento.data_CRIACAO | date : 'dd/MM/yyyy' }}</td>
+        <td *ngIf="requerimento.taxa_DAR_ISENTO === 1">ISENTO</td>
+        <td *ngIf="requerimento.taxa_DAR_ISENTO === 0">NÃO ISENTO</td>
+        <td>
+          <div class="button-row">
+          <button type="button" class="btn btn-success" (click)="openRequerimento(requerimento)"><i class="bi bi-eye-fill"></i></button>
+          <button type="button" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button>
+          </div>
+        </td>
+         
+      </tr>
+    </tbody>
+  </table>
+
+  <pagination-controls (pageChange)="pageChange($event)"></pagination-controls>
+</div>

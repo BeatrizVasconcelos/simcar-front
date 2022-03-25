@@ -1,0 +1,33 @@
+<div class="container">
+<div class="card">
+  <div class="card-header">
+    <b>Detalhes do Requerimento</b>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Número: {{requerimento.numero}}</h5>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><i class="bi bi-info-circle-fill"></i><b>Situação</b>: {{requerimento.situacao | split}}</li>
+      <li class="list-group-item"><i class="bi bi-calendar-event-fill"></i><b>Data de Criação</b>: {{requerimento.data_CRIACAO | date: 'dd/MM/yyyy'}}</li>
+      <li class="list-group-item" *ngIf="requerimento.taxa_DAR_ISENTO === 1"><i class="bi bi-bank2"></i><b>Taxa DAR</b>: ISENTO</li>
+      <li class="list-group-item" *ngIf="requerimento.taxa_DAR_ISENTO === 0"><i class="bi bi-bank2"></i><b>Taxa DAR:</b> NÃO ISENTO</li>
+      <li class="list-group-item"><i class="bi bi-file-text-fill"></i><b>Nome da Propriedade:</b> {{requerimento.propriedade_NOME}}</li>
+      <li class="list-group-item"><i class="bi bi-info-square-fill"></i><b>Finalidade:</b> {{requerimento.finalidade | split}}</li>
+      <li class="list-group-item"><i class="bi bi-calendar-event-fill"></i><b>Data da última modificação:</b> {{requerimento.data_ULTIMA_MODIFICACAO | date: 'dd/MM/yyyy'}}</li>
+      <li class="list-group-item"><i class="bi bi-calendar-event-fill"></i><b>Data de finalização do cadastro:</b> {{requerimento.data_FINALIZACAO_CADASTRO | date: 'dd/MM/yyyy'}}</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="button">
+  <button type="button" class="btn btn-success" (click)="voltar()">
+    <i class="bi bi-arrow-left-circle-fill"></i>
+    Voltar</button>
+
+    <button type="button" class="btn btn-danger">
+      <i class="bi bi-trash3-fill"></i>
+      Excluir Requerimento</button>
+      </div>
+
+
+</div>
